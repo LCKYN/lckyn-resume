@@ -149,13 +149,17 @@
             font-family: 'Courier New', monospace;
         }
 
-        .description {
+        .description-list {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .description-list li {
+            margin-bottom: 4px;
             font-size: 10.5px;
             line-height: 1.4;
             color: #444;
-            margin-left: 10px;
             text-align: justify;
-            text-indent: 15px;
         }
 
         .accomplishment {
@@ -281,17 +285,12 @@
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #bdc3c7;
-            display: none;
         }
 
         .continuation-name {
             font-size: 16px;
             font-weight: bold;
             color: #2c3e50;
-        }
-
-        .page:not(:first-child) .continuation-header {
-            display: block;
         }
 
         @media print {
@@ -308,25 +307,13 @@
                 border: none !important;
                 margin: 0 !important;
                 page-break-after: always;
+                position: static !important;
+                height: auto !important;
+                min-height: 297mm;
             }
 
             .page:last-child {
                 page-break-after: avoid;
-            }
-
-            body * {
-                visibility: hidden;
-            }
-
-            .page,
-            .page * {
-                visibility: visible;
-            }
-
-            .page {
-                position: absolute;
-                left: 0;
-                top: 0;
             }
         }
     </style>
@@ -456,7 +443,24 @@
                     "year": "2021",
                     "title": "Teaching Assistant – Computer Engineering",
                     "description": "Assisted in undergraduate courses: Data Structures and Algorithms, Machine Learning"
-                },
+                }
+            ],
+            "education": [
+                {
+                    "degree": "Bachelor of Engineering in Computer Engineering",
+                    "university": "King Mongkut's University of Technology North Bangkok (KMUTNB)",
+                    "duration": "Aug 2015 – Apr 2019"
+                }
+            ],
+            "skills": {
+                "Programming": "Python, SQL, JavaScript, Shell",
+                "ML/AI": "PyTorch, TensorFlow, scikit-learn, NLP, Computer Vision, Deep Learning",
+                "Data Engineering": "Apache Spark, Airflow, ETL/ELT, Data Pipelines, Real-time Processing",
+                "Cloud/Tools": "Docker, Git, CI/CD, Vector Databases (Milvus), Apache Superset",
+                "Visualization": "Dashboard Development, Business Intelligence, Data Visualization"
+            },
+            // New sections for page 2
+            "additionalAccomplishments": [
                 {
                     "year": "2019",
                     "title": "Senior Project – Variable Selection via AUC Optimization",
@@ -468,22 +472,11 @@
                     "description": "Competed in real-world cybersecurity scenarios"
                 }
             ],
-            "education": [
-                {
-                    "degree": "Bachelor of Engineering in Computer Engineering",
-                    "university": "King Mongkut's University of Technology North Bangkok (KMUTNB)",
-                    "duration": "Aug 2015 – Apr 2019"
-                }
+            "certifications": [
+                // Add certifications here if you have any
             ],
-            "skills": {
-                "Programming Languages": "Python, SQL, Shell, JavaScript",
-                "Machine Learning & AI": "Supervised & Unsupervised Learning, Deep Learning, Neural Networks, NLP, Computer Vision, Predictive Modeling, Feature Engineering, Model Optimization",
-                "Data Engineering": "Data Pipelines, Data Lakehouse, ETL/ELT, Workflow Orchestration, Apache Spark, Apache Airflow, Apache Iceberg, Real-time Processing",
-                "ML Frameworks & Tools": "PyTorch, TensorFlow, scikit-learn, Pandas, NumPy, OpenCV, spaCy, Jupyter Notebook",
-                "Data Visualization & BI": "Apache Superset, Data Visualization, Dashboard Development, Business Intelligence",
-                "Vector Databases & RAG": "Milvus, Vector Databases, Retrieval-Augmented Generation, Chatbot Development, Knowledge Management",
-                "Cloud & Infrastructure": "Min.io, Docker, Git, CI/CD, GitHub Actions, Server Configuration, Remote Deployment, Web Hosting, Server Management",
-                "Development Tools": "VS Code, Dify, Remote Access, Version Control"
+            "additionalSkills": {
+                // Add more detailed technical skills here if needed
             }
         };
 
@@ -505,7 +498,7 @@
         function createContinuationHeader(data) {
             return `
                 <div class="continuation-header">
-                    <div class="continuation-name">${data.name}</div>
+                    <div class="continuation-name">${data.name} - Page 2</div>
                 </div>
             `;
         }
@@ -516,7 +509,12 @@
                     <div class="section-title">Experience</div>
                     ${data.experience.map(job => {
                 const durationInfo = formatDurationRange(job.duration);
-                const descriptionText = job.descriptions.join(' ');
+
+                // Create bullet list instead of paragraph
+                const bulletList = job.descriptions.map(desc =>
+                    `<li>${desc}</li>`
+                ).join('');
+
                 return `
                             <div class="job">
                                 <div class="job-header">
@@ -529,7 +527,7 @@
                                         <div class="duration-detail">${durationInfo.detail}</div>
                                     </div>
                                 </div>
-                                <div class="description">${descriptionText}</div>
+                                <ul class="description-list">${bulletList}</ul>
                             </div>
                         `;
             }).join('')}
@@ -540,8 +538,28 @@
         function createAccomplishmentsSection(data) {
             return `
                 <div class="section">
-                    <div class="section-title">Achievements & Projects</div>
+                    <div class="section-title">Key Achievements</div>
                     ${data.accomplishments.map(acc => `
+                        <div class="accomplishment">
+                            <div class="accomplishment-content">
+                                <div class="accomplishment-title">${acc.title}</div>
+                                <div class="accomplishment-details">${acc.description}</div>
+                            </div>
+                            <div class="accomplishment-year">${acc.year}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function createAdditionalAccomplishmentsSection(data) {
+            if (!data.additionalAccomplishments || data.additionalAccomplishments.length === 0) {
+                return '';
+            }
+            return `
+                <div class="section">
+                    <div class="section-title">Additional Projects & Activities</div>
+                    ${data.additionalAccomplishments.map(acc => `
                         <div class="accomplishment">
                             <div class="accomplishment-content">
                                 <div class="accomplishment-title">${acc.title}</div>
@@ -595,6 +613,34 @@
             `;
         }
 
+        function createCertificationsSection(data) {
+            if (!data.certifications || data.certifications.length === 0) {
+                return '';
+            }
+            return `
+                <div class="section">
+                    <div class="section-title">Certifications</div>
+                    ${data.certifications.map(cert => `
+                        <div class="accomplishment">
+                            <div class="accomplishment-content">
+                                <div class="accomplishment-title">${cert.title}</div>
+                                <div class="accomplishment-details">${cert.issuer}${cert.details ? ' - ' + cert.details : ''}</div>
+                            </div>
+                            <div class="accomplishment-year">${cert.year}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function createPageFooter(pageNumber) {
+            return `
+                <div class="footer">
+                    <div class="page-number">Page ${pageNumber}</div>
+                </div>
+            `;
+        }
+
         function renderMultiPageResume(data) {
             const container = document.getElementById('resume-pages');
 
@@ -603,16 +649,37 @@
                 <div class="content">
                     ${createHeader(data)}
                     ${createExperienceSection(data)}
-                    ${createContinuationHeader(data)}
                     ${createAccomplishmentsSection(data)}
                     ${createEducationSection(data)}
                     ${createSkillsSection(data)}
                 </div>
+                ${createPageFooter(1)}
             `;
 
-            container.innerHTML = `
-                <div class="page">${page1Content}</div>
+            // Page 2 content
+            const page2Content = `
+                <div class="content">
+                    ${createContinuationHeader(data)}
+                    ${createAdditionalAccomplishmentsSection(data)}
+                    ${createCertificationsSection(data)}
+                </div>
+                ${createPageFooter(2)}
             `;
+
+            // Only create page 2 if there's content for it
+            const hasPage2Content = (data.additionalAccomplishments && data.additionalAccomplishments.length > 0) ||
+                (data.certifications && data.certifications.length > 0);
+
+            if (hasPage2Content) {
+                container.innerHTML = `
+                    <div class="page">${page1Content}</div>
+                    <div class="page">${page2Content}</div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="page">${page1Content}</div>
+                `;
+            }
         }
 
         // Render the resume when the page loads
