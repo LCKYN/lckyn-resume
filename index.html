@@ -473,6 +473,13 @@
                     "description": "Competed in 4-person team during one-day hackathon solving real-world cybersecurity scenarios among 20 teams"
                 }
             ],
+            "personalProjects": [
+                {
+                    "year": "2024 – Present",
+                    "title": "Discord Anti-Spam Bot – Behavioral Analysis System",
+                    "description": "Developed ML-powered bot protecting 6,000+ users (500-1,000 active weekly) with 100% accuracy over 1+ year, using behavioral pattern analysis to distinguish scammers from legitimate users without false positives"
+                }
+            ],
             "certifications": [
                 // Add certifications here if you have any
             ],
@@ -614,6 +621,26 @@
             `;
         }
 
+        function createPersonalProjectsSection(data) {
+            if (!data.personalProjects || data.personalProjects.length === 0) {
+                return '';
+            }
+            return `
+                <div class="section">
+                    <div class="section-title">Personal Projects</div>
+                    ${data.personalProjects.map(project => `
+                        <div class="accomplishment">
+                            <div class="accomplishment-content">
+                                <div class="accomplishment-title">${project.title}</div>
+                                <div class="accomplishment-details">${project.description}</div>
+                            </div>
+                            <div class="accomplishment-year">${project.year}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         function createCertificationsSection(data) {
             if (!data.certifications || data.certifications.length === 0) {
                 return '';
@@ -661,6 +688,7 @@
             const page2Content = `
                 <div class="content">
                     ${createContinuationHeader(data)}
+                    ${createPersonalProjectsSection(data)}
                     ${createAdditionalAccomplishmentsSection(data)}
                     ${createCertificationsSection(data)}
                 </div>
@@ -669,6 +697,7 @@
 
             // Only create page 2 if there's content for it
             const hasPage2Content = (data.additionalAccomplishments && data.additionalAccomplishments.length > 0) ||
+                (data.personalProjects && data.personalProjects.length > 0) ||
                 (data.certifications && data.certifications.length > 0);
 
             if (hasPage2Content) {
