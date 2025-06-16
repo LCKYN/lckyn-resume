@@ -418,9 +418,9 @@
                     "position": "Machine Learning Engineer",
                     "duration": "Aug 2021 – Mar 2023",
                     "descriptions": [
-                        "Built ML solutions for car finance pricing, symptom classification, and speech-to-animation generation.",
-                        "Used TensorFlow, EfficientNet, OpenCV, and scikit-learn to deliver models for image, text, and audio domains.",
-                        "Applied spaCy and clustering techniques to extract healthcare-related patterns from unstructured text."
+                        "Developed car auction pricing model achieving 11-26% price accuracy using brand, model, year, and color features, solving data imbalance by applying same-brand price function methodology.",
+                        "Built multi-stage image authentication pipeline: QR code validation, Moiré pattern detection for screen capture rejection, and EfficientNet classification to verify legitimate cardboard-based submissions.",
+                        "Technologies: PyTorch, EfficientNet, scikit-learn, matplotlib, OpenCV"
                     ]
                 },
                 {
@@ -697,8 +697,8 @@
 
             // Only create page 2 if there's content for it
             const hasPage2Content = (data.additionalAccomplishments && data.additionalAccomplishments.length > 0) ||
-                (data.personalProjects && data.personalProjects.length > 0) ||
-                (data.certifications && data.certifications.length > 0);
+                                   (data.personalProjects && data.personalProjects.length > 0) ||
+                                   (data.certifications && data.certifications.length > 0);
 
             if (hasPage2Content) {
                 container.innerHTML = `
