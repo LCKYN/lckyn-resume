@@ -348,9 +348,9 @@ function renderMultiPageResume(data) {
     const page1Content = `
         <div class="content">
             ${createHeader(data)}
+            ${createSkillsSection(data)}
             ${createExperienceSection(data)}
             ${createAccomplishmentsSection(data)}
-            ${createSkillsSection(data)}
         </div>
 
     `;
