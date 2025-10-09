@@ -1,0 +1,310 @@
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cambria', sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #333;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.page {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20mm;
+    box-sizing: border-box;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+}
+
+.page:last-child {
+    page-break-after: avoid;
+}
+
+.content {
+    flex: 1;
+}
+
+.header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 15px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.contact-primary {
+    font-size: 11px;
+    color: #555;
+}
+
+.title {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.contact-secondary {
+    font-size: 11px;
+    color: #555;
+}
+
+.contact-secondary a {
+    color: #555;
+    text-decoration: none;
+}
+
+.contact-secondary a:hover {
+    text-decoration: underline;
+}
+
+.section {
+    margin-bottom: 18px;
+    break-inside: avoid;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-transform: uppercase;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.job {
+    margin-bottom: 12px;
+    break-inside: avoid;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.company {
+    font-weight: bold;
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+.position {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.duration-container {
+    text-align: right;
+    font-size: 10px;
+    color: #000000;
+    min-width: 200px;
+}
+
+.duration-main {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 2px;
+}
+
+.duration-detail {
+    font-family: 'Courier New', monospace;
+}
+
+.description-list {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.description-list li {
+    margin-bottom: 4px;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #444;
+    text-align: justify;
+}
+
+.accomplishment {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    break-inside: avoid;
+}
+
+.accomplishment-content {
+    flex: 1;
+}
+
+.accomplishment-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 2px;
+    font-size: 11px;
+}
+
+.accomplishment-details {
+    color: #555;
+    font-size: 10.5px;
+    line-height: 1.3;
+}
+
+.accomplishment-year {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #000000;
+    min-width: 50px;
+    flex-shrink: 0;
+    text-align: right;
+    margin-top: 2px;
+}
+
+.education-item {
+    margin-bottom: 12px;
+    break-inside: avoid;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.degree {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 12px;
+}
+
+.university {
+    color: #555;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.education-duration {
+    text-align: right;
+    font-size: 10px;
+    color: #000000;
+    font-family: 'Courier New', monospace;
+    min-width: 200px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.skill-category {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    break-inside: avoid;
+}
+
+.skill-label {
+    font-weight: bold;
+    color: #2c3e50;
+    min-width: 140px;
+    flex-shrink: 0;
+}
+
+.skill-items {
+    color: #555;
+    line-height: 1.3;
+}
+
+.bullet-point {
+    margin-left: 15px;
+    text-indent: -15px;
+}
+
+.bullet-point:before {
+    content: "• ";
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 20mm;
+    right: 20mm;
+    text-align: center;
+    font-size: 10pt;
+    color: #777;
+}
+
+.page-number {
+    font-family: 'Courier New', monospace;
+}
+
+/* Continuation header for pages after the first */
+.continuation-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.continuation-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+@media print {
+    body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        page-break-after: always;
+        position: static !important;
+        height: auto !important;
+        min-height: 297mm;
+    }
+
+    .page:last-child {
+        page-break-after: avoid;
+    }
+}
