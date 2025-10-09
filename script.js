@@ -80,8 +80,9 @@ const resumeData = {
             "position": "Data Scientist",
             "duration": "Apr 2023 – Present",
             "descriptions": [
-                "Built RAG chatbot system handling HR queries and government budget allocation predictions, integrating email automation and ML-powered budget ratio forecasting for Thai government projects.",
-                "Developed real-time HR performance analytics pipeline tracking project completion times, predicting task duration, and detecting anomalies in employee patterns (leave abuse, low productivity) with live dashboard for HR teams."
+                "<strong>RAG Chatbot with Budget Allocation System:</strong> Built intelligent chatbot combining data mining and RAG for HR queries and government budget allocation recommendations. Developed ML-powered system to suggest optimal budget ratios and predict allocation outcomes for Thai government projects, integrating automated email notifications.",
+                "<strong>HR Performance Analytics & Workload Balancing:</strong> Developed real-time analytics pipeline tracking project completion times, predicting task duration, and detecting employee pattern anomalies (leave abuse, low productivity). Enabled workload balancing and performance monitoring through live dashboard for HR teams.",
+                "<strong>Wind Turbine Rotor Failure Analysis:</strong> Applied signal analysis on sensor data to predict copper bar rotor breakage in 1,500 RPM turbine generators. Identified critical data collection flaw (10-minute sampling rate insufficient for high-speed machinery) and recommended angle-based sampling (at least 5-10 degrees per sample) instead of time-based approach to capture voltage-current-vibration relationships, providing actionable data engineering solution."
             ]
         },
         {
@@ -90,7 +91,8 @@ const resumeData = {
             "duration": "Aug 2021 – Mar 2023",
             "descriptions": [
                 "<strong>Car Auction Pricing Model:</strong> Developed ML model with 11-26% average price error using brand, model, year, and color features, solving data imbalance by leveraging similar-vehicle pricing patterns. Deployed real-time price range predictions to help valuers and customers make informed bidding decisions.",
-                "<strong>Image Authentication Pipeline:</strong> Built multi-stage verification system with QR code validation, Moiré pattern detection for screen capture rejection, and EfficientNet classification to verify legitimate cardboard-based submissions. Achieved 97% accuracy with 0.2% false positive rate, accelerating verification workflow by 66%."
+                "<strong>Image Authentication Pipeline:</strong> Built multi-stage verification system with QR code validation, Moiré pattern detection for screen capture rejection, and EfficientNet classification to verify legitimate cardboard-based submissions. Achieved 97% accuracy with 0.2% false positive rate, accelerating verification workflow by 66%.",
+                "<strong>Symptom Clustering System:</strong> Developed LLM and NLP-powered system to automatically extract and cluster patient symptoms from medical records. Enabled doctors to focus on key symptom patterns while automatically recording structured data to database, improving diagnosis efficiency and data quality."
             ]
         },
         {
@@ -147,7 +149,7 @@ const resumeData = {
         {
             "year": "2024 – Present",
             "title": "Discord Anti-Spam Bot – Behavioral Analysis System",
-            "description": "Developed ML-powered bot protecting 6,000+ users (500-1,000 active weekly) with 100% accuracy over 1+ year, using behavioral pattern analysis to distinguish scammers from legitimate users without false positives"
+            "description": "Developed ML-powered bot protecting 6,000+ users (~1,000 active per week) with 100% accuracy over 1+ year, using behavioral pattern analysis to distinguish scammers from legitimate users with zero false positives"
         }
     ],
     "certifications": [
