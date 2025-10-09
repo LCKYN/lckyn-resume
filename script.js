@@ -89,8 +89,8 @@ const resumeData = {
             "position": "Machine Learning Engineer",
             "duration": "Aug 2021 – Mar 2023",
             "descriptions": [
-                "Developed car auction pricing model achieving 11-26% price accuracy using brand, model, year, and color features, solving data imbalance by applying same-brand price function methodology.",
-                "Built multi-stage image authentication pipeline: QR code validation, Moiré pattern detection for screen capture rejection, and EfficientNet classification to verify legitimate cardboard-based submissions."
+                "<strong>Car Auction Pricing Model:</strong> Developed ML model with 11-26% average price error using brand, model, year, and color features, solving data imbalance by leveraging similar-vehicle pricing patterns. Deployed real-time price range predictions to help valuers and customers make informed bidding decisions.",
+                "<strong>Image Authentication Pipeline:</strong> Built multi-stage verification system with QR code validation, Moiré pattern detection for screen capture rejection, and EfficientNet classification to verify legitimate cardboard-based submissions. Achieved 97% accuracy with 0.2% false positive rate, accelerating verification workflow by 66%."
             ]
         },
         {
@@ -176,7 +176,7 @@ function createHeader(data) {
 function createContinuationHeader(data) {
     return `
         <div class="continuation-header">
-            <div class="continuation-name">${data.name} - Page 2</div>
+            <div class="continuation-name">${data.name}</div>
         </div>
     `;
 }
