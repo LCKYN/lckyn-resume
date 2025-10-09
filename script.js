@@ -98,8 +98,8 @@ const resumeData = {
             "position": "Software Engineer Intern",
             "duration": "Apr 2018 – Jul 2018",
             "descriptions": [
-                "Built Line chatbot to automate meeting room booking, eliminating manual G Suite processes and improving user adoption through familiar messaging interface.",
-                "Developed automated sales reporting system for metal company, reducing manual data entry and ensuring real-time database synchronization."
+                "<strong>Line Chatbot for Meeting Room Booking:</strong> Built automated booking system eliminating manual G Suite processes and improving user adoption through familiar messaging interface. Streamlined room reservation workflow and reduced administrative overhead.",
+                "<strong>Automated Sales Reporting System:</strong> Developed real-time reporting solution for metal company, reducing manual data entry and ensuring real-time database synchronization. Improved data accuracy and operational efficiency."
             ]
         }
     ],
