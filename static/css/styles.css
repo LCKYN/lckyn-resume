@@ -32,10 +32,10 @@ body.dark-mode {
     --accent-hover: #ff79c6;
     --border-color: #44475a;
     --emphasis: #f8f8f2;
-    --page-shadow: rgba(68, 71, 90, 0.6);
-    --action-shadow: rgba(189, 147, 249, 0.35);
-    --action-shadow-hover: rgba(255, 121, 198, 0.45);
-    --action-shadow-active: rgba(189, 147, 249, 0.25);
+    --page-shadow: rgba(68, 71, 90, 0.3);
+    --action-shadow: rgba(189, 147, 249, 0.22);
+    --action-shadow-hover: rgba(255, 121, 198, 0.32);
+    --action-shadow-active: rgba(189, 147, 249, 0.18);
     --text-on-accent: #1e1f29;
 }
 
