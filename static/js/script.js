@@ -160,6 +160,9 @@ const resumeData = {
     }
 };
 
+const THEME_STORAGE_KEY = 'resume-theme';
+const THEME_HINT_STORAGE_KEY = 'resume-theme-hint-dismissed';
+
 function createHeader(data) {
     return `
         <div class="header">
@@ -383,7 +386,69 @@ function renderMultiPageResume(data) {
     }
 }
 
+function applyTheme(theme, iconEl, toggle) {
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('dark-mode', isDark);
+
+    if (iconEl) {
+        iconEl.textContent = isDark ? '☀️' : '🌙';
+    }
+
+    if (toggle) {
+        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+}
+
+function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) {
+        return;
+    }
+
+    const hint = document.getElementById('theme-hint');
+    const icon = toggle.querySelector('.theme-icon');
+
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    const mediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    const prefersDark = storedTheme ? null : mediaQuery && mediaQuery.matches;
+    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    applyTheme(initialTheme, icon, toggle);
+
+    if (hint && !localStorage.getItem(THEME_HINT_STORAGE_KEY)) {
+        hint.classList.add('visible');
+        setTimeout(function () {
+            hint.classList.remove('visible');
+            localStorage.setItem(THEME_HINT_STORAGE_KEY, 'true');
+        }, 3500);
+    }
+
+    toggle.addEventListener('click', function () {
+        const nextTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+        applyTheme(nextTheme, icon, toggle);
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        if (hint) {
+            hint.classList.remove('visible');
+            localStorage.setItem(THEME_HINT_STORAGE_KEY, 'true');
+        }
+    });
+
+    if (!storedTheme && mediaQuery) {
+        const listener = function (event) {
+            const theme = event.matches ? 'dark' : 'light';
+            applyTheme(theme, icon, toggle);
+        };
+
+        if (typeof mediaQuery.addEventListener === 'function') {
+            mediaQuery.addEventListener('change', listener);
+        } else if (typeof mediaQuery.addListener === 'function') {
+            mediaQuery.addListener(listener);
+        }
+    }
+}
+
 // Render the resume when the page loads
 document.addEventListener('DOMContentLoaded', function () {
     renderMultiPageResume(resumeData);
+    initThemeToggle();
 });

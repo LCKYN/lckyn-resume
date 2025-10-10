@@ -3,6 +3,42 @@
     margin: 0;
 }
 
+:root {
+    --background: #f0f0f0;
+    --page-background: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --text-tertiary: #444444;
+    --text-muted: #777777;
+    --accent: #2c3e50;
+    --accent-hover: #34495e;
+    --border-color: #bdc3c7;
+    --emphasis: #000000;
+    --page-shadow: rgba(0, 0, 0, 0.1);
+    --action-shadow: rgba(0, 0, 0, 0.3);
+    --action-shadow-hover: rgba(0, 0, 0, 0.4);
+    --action-shadow-active: rgba(0, 0, 0, 0.3);
+    --text-on-accent: #ffffff;
+}
+
+body.dark-mode {
+    --background: #0f172a;
+    --page-background: #111827;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5f5;
+    --text-tertiary: #a1b5d8;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --border-color: #1f2937;
+    --emphasis: #e2e8f0;
+    --page-shadow: rgba(8, 47, 73, 0.5);
+    --action-shadow: rgba(14, 165, 233, 0.35);
+    --action-shadow-hover: rgba(14, 165, 233, 0.5);
+    --action-shadow-active: rgba(14, 165, 233, 0.3);
+    --text-on-accent: #0f172a;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +49,8 @@ body {
     font-family: 'Cambria', sans-serif;
     font-size: 11px;
     line-height: 1.4;
-    color: #333;
-    background: #f0f0f0;
+    color: var(--text-primary);
+    background: var(--background);
     margin: 0;
     padding: 20px;
     min-height: 100vh;
@@ -24,8 +60,8 @@ body {
     width: 210mm;
     height: 297mm;
     margin: 20px auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--page-background);
+    box-shadow: 0 0 10px var(--page-shadow);
     padding: 20mm;
     box-sizing: border-box;
     position: relative;
@@ -44,7 +80,7 @@ body {
 
 .header {
     margin-bottom: 20px;
-    border-bottom: 2px solid #2c3e50;
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 15px;
 }
 
@@ -58,27 +94,27 @@ body {
 .name {
     font-size: 24px;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
 }
 
 .contact-primary {
     font-size: 11px;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .title {
     font-size: 14px;
-    color: #2c3e50;
+    color: var(--accent);
     font-weight: 500;
 }
 
 .contact-secondary {
     font-size: 11px;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .contact-secondary a {
-    color: #555;
+    color: var(--text-secondary);
     text-decoration: none;
 }
 
@@ -94,9 +130,9 @@ body {
 .section-title {
     font-size: 14px;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
     text-transform: uppercase;
-    border-bottom: 1px solid #bdc3c7;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 3px;
     margin-bottom: 10px;
 }
@@ -116,19 +152,19 @@ body {
 .company {
     font-weight: bold;
     font-size: 12px;
-    color: #2c3e50;
+    color: var(--accent);
 }
 
 .position {
     font-style: italic;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 2px;
 }
 
 .duration-container {
     text-align: right;
     font-size: 10px;
-    color: #000000;
+    color: var(--emphasis);
     min-width: 200px;
 }
 
@@ -150,7 +186,7 @@ body {
     margin-bottom: 4px;
     font-size: 10.5px;
     line-height: 1.4;
-    color: #444;
+    color: var(--text-tertiary);
     text-align: justify;
 }
 
@@ -169,13 +205,13 @@ body {
 
 .accomplishment-title {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
     margin-bottom: 2px;
     font-size: 11px;
 }
 
 .accomplishment-details {
-    color: #555;
+    color: var(--text-secondary);
     font-size: 10.5px;
     line-height: 1.3;
 }
@@ -183,7 +219,7 @@ body {
 .accomplishment-year {
     font-family: 'Courier New', monospace;
     font-size: 10px;
-    color: #000000;
+    color: var(--emphasis);
     min-width: 50px;
     flex-shrink: 0;
     text-align: right;
@@ -204,12 +240,12 @@ body {
 
 .degree {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
     font-size: 12px;
 }
 
 .university {
-    color: #555;
+    color: var(--text-secondary);
     font-style: italic;
     margin-top: 2px;
 }
@@ -217,7 +253,7 @@ body {
 .education-duration {
     text-align: right;
     font-size: 10px;
-    color: #000000;
+    color: var(--emphasis);
     font-family: 'Courier New', monospace;
     min-width: 200px;
 }
@@ -237,13 +273,13 @@ body {
 
 .skill-label {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
     min-width: 140px;
     flex-shrink: 0;
 }
 
 .skill-items {
-    color: #555;
+    color: var(--text-secondary);
     line-height: 1.3;
 }
 
@@ -254,7 +290,7 @@ body {
 
 .bullet-point:before {
     content: "• ";
-    color: #2c3e50;
+    color: var(--accent);
     font-weight: bold;
 }
 
@@ -265,7 +301,7 @@ body {
     right: 20mm;
     text-align: center;
     font-size: 10pt;
-    color: #777;
+    color: var(--text-muted);
 }
 
 .page-number {
@@ -276,18 +312,19 @@ body {
 .continuation-header {
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #2c3e50;
+    border-bottom: 2px solid var(--accent);
 }
 
 .continuation-name {
     font-size: 16px;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent);
 }
 
 @media print {
     body {
         background: white !important;
+        color: #000000 !important;
         margin: 0 !important;
         padding: 0 !important;
         -webkit-print-color-adjust: exact;
@@ -307,6 +344,12 @@ body {
         display: flex !important;
         flex-direction: column !important;
         overflow: visible !important;
+        background-color: #ffffff !important;
+    }
+
+    .theme-toggle,
+    .theme-hint {
+        display: none !important;
     }
 
     .page:last-child {
@@ -342,15 +385,15 @@ body {
 }
 
 .action-button {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--accent);
+    color: var(--text-on-accent);
     border: none;
     border-radius: 50px;
     padding: 15px 28px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px var(--action-shadow);
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
@@ -359,12 +402,79 @@ body {
 }
 
 .action-button:hover {
-    background-color: #34495e;
+    background-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 16px var(--action-shadow-hover);
 }
 
 .action-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px var(--action-shadow-active);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--page-background);
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px var(--page-shadow);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    overflow: visible;
+    padding: 0;
+}
+
+.theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--action-shadow-hover);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px var(--action-shadow-active);
+}
+
+.theme-hint {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--page-background);
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px var(--page-shadow);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.theme-toggle:hover .theme-hint,
+.theme-toggle:focus .theme-hint {
+    opacity: 1;
+}
+
+.theme-hint.visible {
+    opacity: 1;
 }
