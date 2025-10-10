@@ -22,21 +22,21 @@
 }
 
 body.dark-mode {
-    --background: #0f172a;
-    --page-background: #111827;
-    --text-primary: #e2e8f0;
-    --text-secondary: #cbd5f5;
-    --text-tertiary: #a1b5d8;
-    --text-muted: #94a3b8;
-    --accent: #38bdf8;
-    --accent-hover: #0ea5e9;
-    --border-color: #1f2937;
-    --emphasis: #e2e8f0;
-    --page-shadow: rgba(8, 47, 73, 0.5);
-    --action-shadow: rgba(14, 165, 233, 0.35);
-    --action-shadow-hover: rgba(14, 165, 233, 0.5);
-    --action-shadow-active: rgba(14, 165, 233, 0.3);
-    --text-on-accent: #0f172a;
+    --background: #1e1f29;
+    --page-background: #282a36;
+    --text-primary: #f8f8f2;
+    --text-secondary: #e2e2f3;
+    --text-tertiary: #d6d6f5;
+    --text-muted: #6272a4;
+    --accent: #bd93f9;
+    --accent-hover: #ff79c6;
+    --border-color: #44475a;
+    --emphasis: #f8f8f2;
+    --page-shadow: rgba(68, 71, 90, 0.6);
+    --action-shadow: rgba(189, 147, 249, 0.35);
+    --action-shadow-hover: rgba(255, 121, 198, 0.45);
+    --action-shadow-active: rgba(189, 147, 249, 0.25);
+    --text-on-accent: #1e1f29;
 }
 
 * {
