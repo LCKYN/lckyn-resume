@@ -1,6 +1,7 @@
 @page {
     size: A4;
-    margin: 0.5in; /* Standard 0.5 inch margins on all sides */
+    margin: 0.5in;
+    /* Standard 0.5 inch margins on all sides */
 }
 
 * {
@@ -32,7 +33,8 @@ body {
     page-break-after: always;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Prevent content overflow */
+    overflow: hidden;
+    /* Prevent content overflow */
 }
 
 .page:last-child {
@@ -304,7 +306,8 @@ body {
         width: 100% !important;
         height: auto !important;
         margin: 0 !important;
-        padding: 0.75in !important; /* Internal padding within the page margins */
+        padding: 0.75in !important;
+        /* Internal padding within the page margins */
         box-shadow: none !important;
         border: none !important;
         background: white !important;
@@ -330,7 +333,9 @@ body {
         margin-bottom: 12pt !important;
     }
 
-    .job, .accomplishment, .education-item {
+    .job,
+    .accomplishment,
+    .education-item {
         break-inside: avoid;
         page-break-inside: avoid;
         margin-bottom: 8pt !important;
@@ -360,7 +365,8 @@ body {
     }
 
     /* Prevent widows and orphans */
-    p, li {
+    p,
+    li {
         orphans: 3;
         widows: 3;
     }
@@ -423,7 +429,8 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.print-button:active, .print-preview-button:active {
+.print-button:active,
+.print-preview-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
