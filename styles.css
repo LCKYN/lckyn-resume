@@ -1,6 +1,6 @@
 @page {
     size: A4;
-    margin: 0;
+    margin: 0.5in; /* Standard 0.5 inch margins on all sides */
 }
 
 * {
@@ -32,6 +32,7 @@ body {
     page-break-after: always;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .page:last-child {
@@ -286,30 +287,92 @@ body {
 }
 
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     body {
         background: white !important;
         margin: 0 !important;
         padding: 0 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        font-size: 12pt !important;
+        line-height: 1.3 !important;
     }
 
     .page {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0.75in !important; /* Internal padding within the page margins */
         box-shadow: none !important;
         border: none !important;
-        margin: 0 !important;
+        background: white !important;
         page-break-after: always;
-        position: static !important;
-        height: auto !important;
-        min-height: 297mm;
+        page-break-inside: avoid;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
     }
 
     .page:last-child {
-        page-break-after: avoid;
+        page-break-after: avoid !important;
     }
 
     .web-only {
         display: none !important;
+    }
+
+    /* Better section breaks */
+    .section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 12pt !important;
+    }
+
+    .job, .accomplishment, .education-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8pt !important;
+    }
+
+    /* Font size adjustments for print */
+    .name {
+        font-size: 18pt !important;
+    }
+
+    .title {
+        font-size: 12pt !important;
+    }
+
+    .section-title {
+        font-size: 11pt !important;
+        margin-bottom: 6pt !important;
+    }
+
+    .company {
+        font-size: 10pt !important;
+    }
+
+    .description-list li {
+        font-size: 9pt !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Prevent widows and orphans */
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Footer positioning */
+    .footer {
+        position: fixed;
+        bottom: 0.25in;
+        left: 0.5in;
+        right: 0.5in;
+        text-align: center;
+        font-size: 8pt !important;
     }
 }
 
@@ -331,13 +394,63 @@ body {
     z-index: 1000;
 }
 
+.print-preview-button {
+    position: fixed;
+    bottom: 30px;
+    right: 200px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
 .print-button:hover {
     background-color: #34495e;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.print-button:active {
+.print-preview-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.print-button:active, .print-preview-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Print Preview Mode */
+body.print-preview {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12pt !important;
+    line-height: 1.3 !important;
+}
+
+body.print-preview .page {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0.75in !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    background: white !important;
+    page-break-after: always;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+body.print-preview .web-only {
+    display: block !important;
 }
