@@ -352,7 +352,6 @@ function renderMultiPageResume(data) {
             ${createAccomplishmentsSection(data)}
             ${createSkillsSection(data)}
         </div>
-
     `;
 
     // Page 2 content

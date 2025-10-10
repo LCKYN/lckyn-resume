@@ -299,9 +299,14 @@ body {
         border: none !important;
         margin: 0 !important;
         page-break-after: always;
-        position: static !important;
-        height: auto !important;
-        min-height: 297mm;
+        page-break-inside: avoid;
+        position: relative !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        height: 297mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: visible !important;
     }
 
     .page:last-child {
@@ -310,6 +315,19 @@ body {
 
     .web-only {
         display: none !important;
+    }
+
+    #resume-pages {
+        display: block !important;
+    }
+
+    .section,
+    .job,
+    .accomplishment,
+    .education-item,
+    .skill-category {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
     }
 }
 
