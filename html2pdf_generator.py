@@ -41,23 +41,44 @@ def generate_html_content():
             padding-bottom: 10pt;
         }
 
+        .header-table {
+            width: 100%;
+        }
+
+        .header-table td {
+            vertical-align: top;
+        }
+
+        .header-left {
+            width: 60%;
+        }
+
+        .header-right {
+            width: 40%;
+            text-align: right;
+        }
+
         .name {
             font-size: 24pt;
             font-weight: bold;
             color: #2c3e50;
             margin-bottom: 4pt;
+            font-family: Helvetica, Arial, sans-serif;
         }
 
         .title {
             font-size: 14pt;
             color: #2c3e50;
-            margin-bottom: 6pt;
+            margin-bottom: 0pt;
+            font-family: Helvetica, Arial, sans-serif;
         }
 
         .contact {
             font-size: 11pt;
             color: #555;
-            margin-bottom: 3pt;
+            margin-bottom: 2pt;
+            font-family: Helvetica, Arial, sans-serif;
+            line-height: 1.4;
         }
 
         .section {
@@ -174,10 +195,20 @@ def generate_html_content():
 </head>
 <body>
     <div class="header">
-        <div class="name">Pawarit Thareechan</div>
-        <div class="title">Data Scientist | Machine Learning Engineer</div>
-        <div class="contact">T.Pawarit@lckyn.com | +66 83-028-2014</div>
-        <div class="contact">linkedin.lckyn.com | github.lckyn.com</div>
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    <div class="name">Pawarit Thareechan</div>
+                    <div class="title">Data Scientist | Machine Learning Engineer</div>
+                </td>
+                <td class="header-right">
+                    <div class="contact">T.Pawarit@lckyn.com</div>
+                    <div class="contact">+66 83-028-2014</div>
+                    <div class="contact">linkedin.lckyn.com</div>
+                    <div class="contact">github.lckyn.com</div>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="section">
@@ -262,7 +293,7 @@ def generate_html_content():
 
         <div class="education-item">
             <div class="degree">Bachelor of Engineering in Computer Engineering</div>
-            <div class="university">Kasetsart University</div>
+            <div class="university">King Mongkut's University of Technology North Bangkok (KMUTNB)</div>
             <div class="education-duration">2017 - 2021</div>
         </div>
     </div>

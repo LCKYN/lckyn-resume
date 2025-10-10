@@ -85,7 +85,7 @@ RESUME_DATA = {
     "education": [
         {
             "degree": "Bachelor of Engineering in Computer Engineering",
-            "university": "Kasetsart University",
+            "university": "King Mongkut's University of Technology North Bangkok (KMUTNB)",
             "duration": "2017 - 2021",
             "gpa": "3.45",
         }
