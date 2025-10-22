@@ -149,7 +149,7 @@ const resumeData = {
         {
             "year": "2024 – Present",
             "title": "Discord Anti-Spam Bot – Behavioral Analysis System",
-            "description": "Developed ML-powered bot protecting 6,000+ users (~3,000 active per week) processing ~100,000 messages per month with 100% accuracy over 1+ year, using behavioral pattern analysis to distinguish scammers from legitimate users with zero false positives"
+            "description": "Developed ML-powered bot protecting 6,000+ users (~3,000 active per week) processing ~20,000 messages per week with 100% accuracy over 1+ year, using behavioral pattern analysis to distinguish scammers from legitimate users with zero false positives"
         }
     ],
     "certifications": [
